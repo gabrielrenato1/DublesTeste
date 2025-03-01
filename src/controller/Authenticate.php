@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Controller;
-use App\Entity\User\UserEntity;
+use App\Entity\User\UserInterface;
 
 class Authenticate{
 
@@ -9,9 +9,9 @@ class Authenticate{
         date_default_timezone_set('America/Sao_Paulo');
     }
 
-    public function login(UserEntity $user):array{
+    public function login(UserInterface $user):array{
 
-        if($user->isRegistered()){
+        if($user->email == "correto@email.com.br" && $user->password == "12345"){
             
             return [
                 "token" => base64_encode(random_bytes(30)),

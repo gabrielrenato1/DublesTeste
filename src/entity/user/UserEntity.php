@@ -13,7 +13,7 @@ class UserEntity implements UserInterface{
 
     public function isRegistered():bool{
 
-        return $this->email == "correto@email.com.br" && $this->password == "12345";
+        return $this->email == "correto@email.com.br";
 
     }
 
