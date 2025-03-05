@@ -10,6 +10,7 @@ class UserEntity implements UserInterface{
     public int $age;
     public string $email;
     public string $password;
+    public $loginAttemptsCount = 0;
 
     public function isRegistered():bool{
 
@@ -29,6 +30,8 @@ class UserEntity implements UserInterface{
             ];
 
         }
+
+        $this->loginAttemptsCount++;
 
         return [
             "message" => "Não foi possível fazer login",

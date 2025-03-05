@@ -39,5 +39,19 @@ final class UserTest extends TestCase {
 
     }
 
+    public function testLoginAttempts(){
+
+        $userTest = new UserTestDouble();
+
+        $userTest->email = "test@email.com";
+
+        $userTest->authenticate();
+        $userTest->authenticate();
+        $userTest->authenticate();
+
+        $this->assertEquals($userTest->loginAttemptsCount, 3);
+
+    }
+
 
 }

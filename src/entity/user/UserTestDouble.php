@@ -5,18 +5,24 @@ use App\Entity\User\UserInterface;
 
 class UserTestDouble implements UserInterface{
 
+    public $loginAttemptsCount = 0;
+
     public function isRegistered():bool{
         return 0;
     }
 
     public function authenticate():array{
 
-        return [
-            "token" => base64_encode(random_bytes(30)),
-            "expired_at" => date("Y-m-d h:i:s", strtotime( "+5 hours")),
-            "email" => "test@email.com.br",
-            "status" => 200,
-        ];
+        if($this->email != "correto@email.com.br"){
+            
+           $this->loginAttemptsCount++;
+
+           return [
+                "message" => "Não foi possível fazer login",
+                "status" => 401,
+            ];
+
+        }
 
     }
 
