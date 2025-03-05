@@ -17,8 +17,12 @@ final class UserTest extends TestCase {
         $this->assertEquals($user->isRegistered(), 0);
 
         $auth = new Authenticate;
+        $userEntity = new UserEntity();
 
-        $login = $auth->login($user);
+        $userEntity->email = "gabriel@email.com.br";
+        $userEntity->password = "12345";
+
+        $login = $auth->login($userEntity);
 
         $this->assertEquals($login["status"], 401);
 
