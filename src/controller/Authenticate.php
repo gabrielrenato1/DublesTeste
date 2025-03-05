@@ -11,6 +11,13 @@ class Authenticate{
 
     public function login(UserInterface $user):array{
 
+        if($user->isBlocked()){
+            return [
+                "message" => "Muitas tentativas de logins, tente mais tarde.",
+                "status" => 403,
+            ];
+        }
+
         return $user->authenticate();
 
     }

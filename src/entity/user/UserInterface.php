@@ -9,4 +9,6 @@ interface UserInterface{
 
     public function getData():array;
 
+    public function isBlocked():bool;
+
 }

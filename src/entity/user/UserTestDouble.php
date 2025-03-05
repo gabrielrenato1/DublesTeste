@@ -36,6 +36,10 @@ class UserTestDouble implements UserInterface{
 
     }
 
+        
+    public function isBlocked():bool{
+        return $this->loginAttemptsCount >= 3;
+    }
 
 
 }
