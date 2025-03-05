@@ -28,7 +28,7 @@ final class UserTest extends TestCase {
 
     }
 
-    public function testSaveLogSucess():void{
+    public function testSaveLoginLogSucess():void{
 
         $userTest = new UserTestDouble();
         $userEntity = new UserEntity();
