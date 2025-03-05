@@ -28,18 +28,14 @@ final class UserTest extends TestCase {
 
     }
 
-    public function testLogWhenLoginSuccess():void{
+    public function testSaveLogSucess():void{
 
         $userTest = new UserTestDouble();
-
-        $userTest->email = "teste@email.com.br";
-        $userTest->password = "12345";
-
-        $login = $userTest->authenticate();
-
         $userEntity = new UserEntity();
 
-        $this->assertTrue($userEntity->logLogin($login));
+        $userData = $userTest->getData();
+
+        $this->assertTrue($userEntity->logLogin($userData));
 
     }
 

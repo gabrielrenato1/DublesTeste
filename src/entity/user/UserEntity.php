@@ -38,9 +38,19 @@ class UserEntity implements UserInterface{
 
     }
 
+    public function getData():array{
+
+        return [
+            "name" => $this->name,
+            "age" => $this->age,
+            "email" => $this->email,
+        ];
+
+    }
+
     public function logLogin($login):bool{
 
-        if($login['status'] == 200){
+        if(isset($login['email'])){
             //Logic..
             return true;
         }

@@ -7,4 +7,6 @@ interface UserInterface{
 
     public function authenticate():array;
 
+    public function getData():array;
+
 }

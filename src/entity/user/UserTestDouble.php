@@ -20,4 +20,16 @@ class UserTestDouble implements UserInterface{
 
     }
 
+    public function getData():array{
+
+        return [
+            "name" => "Teste Silva",
+            "age" => 15,
+            "email" => "teste@email.com.br",
+        ];
+
+    }
+
+
+
 }
