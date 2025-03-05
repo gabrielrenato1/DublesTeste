@@ -5,4 +5,6 @@ interface UserInterface{
 
     public function isRegistered():bool;
 
+    public function authenticate():array;
+
 }
