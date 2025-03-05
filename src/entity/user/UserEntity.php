@@ -38,4 +38,15 @@ class UserEntity implements UserInterface{
 
     }
 
+    public function logLogin($login):bool{
+
+        if($login['status'] == 200){
+            //Logic..
+            return true;
+        }
+
+        return false;
+
+    }
+
 }

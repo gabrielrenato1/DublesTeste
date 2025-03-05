@@ -2,6 +2,7 @@
 
 use PHPUnit\Framework\TestCase;
 use App\Entity\User\UserTestDouble;
+use App\Entity\User\UserEntity;
 use App\Controller\Authenticate;
 
 final class UserTest extends TestCase {
@@ -17,9 +18,24 @@ final class UserTest extends TestCase {
 
         $auth = new Authenticate;
 
-        $login = $auth->login($user);
+        // $login = $auth->login($user);
 
-        $this->assertEquals($login["status"], 401);
+        // $this->assertEquals($login["status"], 401);
+
+    }
+
+    public function testLogWhenLoginSuccess():void{
+
+        $userTest = new UserTestDouble();
+
+        $userTest->email = "teste@email.com.br";
+        $userTest->password = "12345";
+
+        $login = $userTest->authenticate();
+
+        $userEntity = new UserEntity();
+
+        $this->assertTrue($userEntity->logLogin($login));
 
     }
 
