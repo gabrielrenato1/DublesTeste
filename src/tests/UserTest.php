@@ -53,5 +53,19 @@ final class UserTest extends TestCase {
 
     }
 
+    public function testBlockUserAfterAttempts(){
+
+        $userTest = new UserTestDouble();
+
+        $userTest->email = "test@email.com";
+
+        $userTest->authenticate();
+        $userTest->authenticate();
+        $userTest->authenticate();
+
+        $this->assertTrue($userTest->isBlocked());
+
+    }
+
 
 }
