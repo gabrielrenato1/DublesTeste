@@ -18,9 +18,9 @@ final class UserTest extends TestCase {
 
         $auth = new Authenticate;
 
-        // $login = $auth->login($user);
+        $login = $auth->login($user);
 
-        // $this->assertEquals($login["status"], 401);
+        $this->assertEquals($login["status"], 401);
 
     }
 
